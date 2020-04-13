@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <meta charset="UTF-8">
+    <title>Gallery</title>
+    <style>
+
+        .button {
+            border-radius: 12px;
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+
+        .button5 {
+            background-color: #555555;
+            position: fixed;
+            left: 0;
+            bottom: 0%;
+        }
+
+        .button4 {
+            position: fixed;
+            left: 0;
+            bottom: 6%;
+            background-color: #555555;
+        }
+
+        img:hover {
+            border-radius: 20px;
+            border: 8px solid #000000;
+        }
+
+        button {
+            border: 3px solid #3a7999;
+        }
+
+        button:hover {
+            border: 3px dotted #3a7999;
+            color: #3a7999;
+            background: rgba(0,0,0,0);
+        }
+
+    </style>
+    <script>
+    </script>
+
+</head>
+<body>
+
+
+<div th:if="${hashMap}">
+    <th:block th:each="image : ${hashMap}">
+
+        <a th:href="@{'/gallery/' + ${image.key}}"><img th:src="@{'data:image/jpeg;base64,'+${image.value}}" alt="empty"
+                                                        id="image" style="width:150px;height:150px;"/></a>
+
+    </th:block>
+</div>
+
+
+<form th:action="@{/hello}">
+    <button type="submit" class="button button4">Profile</button>
+</form>
+
+
+<form method="get" action="/">
+    <button type="submit" class="button button5">Home</button>
+</form>
+
+</body>
+</html>

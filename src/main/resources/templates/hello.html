@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <title>Profile</title>
+
+    <style>
+        body {
+            background-color: #f2f3f4;
+        }
+
+        .button {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 12px;
+        }
+
+        .button5 {
+            position: fixed;
+            left: 0;
+            bottom: 0%;
+            background-color: #555555;
+        }
+        .button4 {
+            position: fixed;
+            left: 0;
+            bottom: 6%;
+            background-color: #555555;
+        }
+        .button3 {
+              position: fixed;
+              left: 0;
+              bottom: 12%;
+              background-color: #555555;
+          }
+
+        h1 {
+            font-family: "MV Boli";
+        }
+        button {
+            border: 3px solid #3a7999;
+        }
+
+        button:hover {
+            border: 3px dotted #3a7999;
+            color: #3a7999;
+            background: rgba(0,0,0,0);
+        }
+
+    </style>
+</head>
+<body>
+
+
+<h1 align="center">Your Profile</h1>
+<br/>
+
+<form  enctype="multipart/form-data" method="post" th:action="@{/hello/addImage}">
+    <p align="center"><input type="file" name="f">
+        <input type="submit" value="Send"></p>
+</form>
+
+<form action="/gallery" method="get">
+    <button class="button button3">Gallery</button>
+</form>
+
+<form th:action="@{/logout}" method="post">
+    <button class="button button4">Sign Out</button>
+</form>
+<p>
+
+</p>
+<form action="/" method="get">
+    <button class="button button5">Home</button>
+</form>
+
+<div align="center" th:text="${message}"></div>
+
+
+</body>
+</html>
